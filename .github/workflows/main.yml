@@ -3,15 +3,10 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - linux_build
 
 jobs:
   release:
-    runs-on: macos-latest
-
-jobs:
-  build:
-
     runs-on: macos-latest
 
     steps:
