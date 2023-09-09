@@ -1,0 +1,24 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: install opencv
+      run: brew install opencv
+      
+    - name: build
+      run: |
+        mkdir release && cd release
+        cmake -DCMAKE_BUILD_TYPE=Release ..
+        make
