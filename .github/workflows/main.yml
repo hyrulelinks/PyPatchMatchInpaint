@@ -20,8 +20,10 @@ jobs:
         mkdir release && cd release
         cmake -DCMAKE_BUILD_TYPE=Release ..
         make
+        find . -type f -name "libpatchmatch_inpaint.dylib" -print
+        
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.3
       with: 
         name: intel-dylib
-        path: build/libopencv_world.4.4.0.dylib
+        path: ./*.dylib
